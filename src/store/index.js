@@ -18,12 +18,20 @@ export default new Vuex.Store({
    },
    happyLarry: state => {
      return state.isLarryHappy
-   }
-
+   },
+    happyJenny: state => {
+       return state.isJennyHappy
+    },
   },
 
   mutations: {
     //Jenny
+    compJenny(state) {
+      state.isJennyHappy = true
+    },
+    noJENNY(state) {
+      state.isJennyHappy = false
+    },
     removeRouter(state, amount) {
       state.totalRouterCount -= amount
     },
@@ -32,10 +40,18 @@ export default new Vuex.Store({
       // один телевизор за раз.
       state.totalTvCount -= amount
     },
-    evil(state) {
-      state.isLarryHappy = false
+    addTenTvs(state, amount) {
+      state.totalTvCount += amount
     },
-
+    evilLarry(state) {
+      state.isLarryHappy  = false
+    },
+    evilJenny(state) {
+      state.isJennyHappy  = false
+    },
+    addTenRouters(state, amount) {
+      state.totalRouterCount += amount
+    }
   },
   actions: {
     //Larry
@@ -51,13 +67,28 @@ export default new Vuex.Store({
         context.commit('removeTv', amount)
       }
     },
+    complimentJENNY(context) {
+      context.commit('compJenny')
+    },
+    noComplimentJENNY(context) {
+      context.commit('noJENNY')
+    },
+    addTvs(context, amount) {
+      context.commit('addTenTvs', amount)
+    },
     removeRouter(context, amount) {
       if(context.state.totalRouterCount >= amount) {
         context.commit('removeRouter', amount)
       }
     },
+    addRouters(context, amount) {
+        context.commit('addTenRouters', amount)
+    },
     evil(context) {
-      context.commit('evil')
+      context.commit('evilLarry')
       }
+    },
+    evil(context) {
+      context.commit('evilJenny')
     }
 });

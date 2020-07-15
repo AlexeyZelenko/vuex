@@ -1,16 +1,15 @@
 <template>
     <div class="customer">
         <h1>I'm a customer</h1>
-        <p>I see {{ totalTvCount }} TVs!</p>
+        <p
+        v-if="totalTvCount"
+        >I see {{ totalTvCount }} TVs!</p>
         <p v-show="happyStaff">Персонал кажется счастливым!</p>
         <p v-show="happyLarry">Ларри кажется счастливым!</p>
         <p v-show="!happyStaff">Персонал кажется злым!</p>
-        <p v-show="!totalTvCount">Я не могу купить ни одного ..</p>
-        <button
-            :disabled="!totalTvCount"
-            @click="buyTv">
-            Buy Tv
-        </button>
+        <p v-show="!totalTvCount">Я не вижу ни одного TV</p>
+
+
         <button
                 @click="evil">
             У продовца плохое настроение
@@ -20,12 +19,19 @@
             У продовца Larry плохое настроение
         </button>
         <button
+                v-if="totalTvCount"
+                :disabled="!totalTvCount"
+                @click="buyTv">
+            Buy Tv
+        </button>
+        <button
             :disabled="TotalTvCount < 2"
             @click="buyTwoTvs"
         >
            Buy Two Tvs
         </button>
         <button
+                v-if="totalTvCount >= 5"
                 :disabled="TotalTvCount < 5"
                 @click="buyFiveTvs"
         >

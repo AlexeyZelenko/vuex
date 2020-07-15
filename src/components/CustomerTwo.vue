@@ -1,6 +1,7 @@
 <template>
     <div>
-        <h1>Я покупатель №2</h1>
+        <h1>Я покупатель</h1>
+        <p v-show="!totalRouterCount">Я не вижу ни одного роутера</p>
         <p>Я вижу {{ totalRouterCount }} роутеров!</p>
         <button
                 :disabled="!totalRouterCount"
