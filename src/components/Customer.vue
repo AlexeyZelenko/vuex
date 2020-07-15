@@ -39,13 +39,13 @@
     export default {
         name: "Customer",
         computed: {
-            totalTvCount () {
-                return this.$store.state.totalTvCount
-            },
-            // Check in the getter if the staff is happy
-            happyStaff () {
-                return this.$store.getters.happyStaff
-            },
+            // totalTvCount () {
+            //     return this.$store.state.totalTvCount
+            // },
+            // // Check in the getter if the staff is happy
+            // happyStaff () {
+            //     return this.$store.getters.happyStaff
+            // },
             // Если у вас есть только один объект состояния / getter, операторы распространения необязательно
             // Но мы будем использовать это сейчас, чтобы вы могли видеть, как они используются
             // mapState / mapGetter принимает массив строк в качестве параметра

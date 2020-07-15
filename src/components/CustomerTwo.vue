@@ -7,6 +7,12 @@
                 @click="buyRouter">
             Купить роутер
         </button>
+        <button
+                :disabled="totalRouterCount < 2"
+                @click="buyTwoRouter"
+        >
+            Купить два роутера
+        </button>
     </div>
 </template>
 
@@ -21,8 +27,11 @@
         methods: {
             buyRouter () {
                 return this.$store.state.totalRouterCount--
+            },
+            buyTwoRouter () {
+                    this.$store.dispatch('removeRouter', 2)
             }
-        }
+        },
     }
 </script>
 
