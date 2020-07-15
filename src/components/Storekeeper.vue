@@ -1,8 +1,8 @@
 <template>
     <div class="Storekeeper">
-        <h1>Я кладовщик</h1>
-        <p>У меня на складе { totalTvCount } телевизоров</p>
-        <p>У меня на складе { totalRouterCount } роутеров</p>
+        <h1>Я кладовщица Jenny</h1>
+        <p>У меня на складе {{ totalTvCount }} телевизоров</p>
+        <p>У меня на складе {{ totalRouterCount }} роутеров</p>
     </div>
 </template>
 
